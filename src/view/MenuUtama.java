@@ -6,6 +6,8 @@
 
 package view;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,14 +16,26 @@ import javax.swing.JOptionPane;
  */
 public class MenuUtama extends javax.swing.JFrame {
 
+    GridBagLayout gbl = new GridBagLayout();
+    ViewPinjam vp = new ViewPinjam();
+    ViewTeman vt = new ViewTeman();
     /**
      * Creates new form MenuUtama
      */
     public MenuUtama() {
         initComponents();
         setLocationRelativeTo(null);
-        viewTeman1.setVisible(false);
-        viewPinjam1.setVisible(false);
+        jPanel1.setLayout(gbl);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        jPanel1.add(vp,gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        jPanel1.add(vt,gbc);
+        
+        vp.setVisible(false);
+        vt.setVisible(false);
     }
 
     /**
@@ -33,6 +47,7 @@ public class MenuUtama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -45,6 +60,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 460));
 
         jMenu1.setText("Pilihan");
 
@@ -99,8 +115,8 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        viewTeman1.setVisible(true);
-        viewPinjam1.setVisible(false);
+        vt.setVisible(true);
+        vp.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -122,8 +138,8 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        viewTeman1.setVisible(false);
-        viewPinjam1.setVisible(true);
+        vp.setVisible(true);
+        vt.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
@@ -169,6 +185,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     // End of variables declaration//GEN-END:variables
