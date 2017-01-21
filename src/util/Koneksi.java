@@ -13,17 +13,17 @@ import java.sql.Statement;
 
 /**
  *
- * @author abyssBerserker
+ * 
  */
 public class Koneksi {
-    public Connection con = null;
-    public Statement st = null;
-    String db = "jdbc:mysql://localhost/db_uas_15312467";
+    public Connection konek = null;
+    public Statement state = null;
+    String db = "jdbc:mysql://localhost/db_uas_15312432";
     
     public void getConnection(){
         try {
-            con = DriverManager.getConnection(db, "root", "");
-            st = con.createStatement();
+            konek = DriverManager.getConnection(db, "root", "");
+            state = konek.createStatement();
             System.out.println("Koneksi Berhasil");
         } catch (SQLException e) {
             System.out.println("Koneksi Gagal : "+e.getMessage());

@@ -14,7 +14,7 @@ import util.Koneksi;
 
 /**
  *
- * @author abyssBerserker
+ * 
  */
 public class ControllerTeman {
     Koneksi konek = new Koneksi();
@@ -25,7 +25,7 @@ public class ControllerTeman {
                 mt.getNope()+"','"+mt.getEmail()+"')";
         try {
             konek.getConnection();
-            konek.st.executeUpdate(query);
+            konek.state.executeUpdate(query);
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan", "Informasi", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Data Gagal Disimpan", "Informasi", JOptionPane.ERROR_MESSAGE);
@@ -38,7 +38,7 @@ public class ControllerTeman {
                 "') where id = ('"+mt.getId()+"')";
         try {
             konek.getConnection();
-            int a = konek.st.executeUpdate(query);
+            int a = konek.state.executeUpdate(query);
             if(a>0)
                 JOptionPane.showMessageDialog(null, "Data Berhasil Diubah", "Informasi", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
@@ -51,7 +51,7 @@ public class ControllerTeman {
         query = "delete from tbl_teman where id = ('"+mt.getId()+"')";
         try {
             konek.getConnection();
-            int a = konek.st.executeUpdate(query);
+            int a = konek.state.executeUpdate(query);
             if(a>0)
                 JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus", "Informasi", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {

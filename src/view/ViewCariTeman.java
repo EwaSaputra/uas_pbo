@@ -16,13 +16,13 @@ import util.Koneksi;
 
 /**
  *
- * @author abyssBerserker
+ * 
  */
 public class ViewCariTeman extends javax.swing.JFrame {
 
     ControllerTeman ct = new ControllerTeman();
     ModelTeman mt = new ModelTeman();
-    Koneksi k = new Koneksi();
+    Koneksi kon = new Koneksi();
     /**
      * Creates new form ViewCariTeman
      */
@@ -34,8 +34,8 @@ public class ViewCariTeman extends javax.swing.JFrame {
     void tampilData(){
         try {
             String query = "select * from tbl_teman";
-            k.getConnection();
-            ResultSet rs = k.st.executeQuery(query);
+            kon.getConnection();
+            ResultSet rs = kon.state.executeQuery(query);
             while(rs.next()){
                 dtm.addRow(new Object[]{
                     rs.getString("id"),
@@ -45,9 +45,9 @@ public class ViewCariTeman extends javax.swing.JFrame {
                 });
             }
             jTable1.setModel(dtm);
-            k.st.close();
+            kon.state.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan", "Informasi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "terjadi kesalahan", "Informasi", JOptionPane.ERROR_MESSAGE);
             System.err.println(e.getMessage());
         }
     }
@@ -95,7 +95,7 @@ public class ViewCariTeman extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Refresh");
+        jButton1.setText("Cari");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -113,7 +113,7 @@ public class ViewCariTeman extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)))
                 .addContainerGap())
@@ -138,8 +138,8 @@ public class ViewCariTeman extends javax.swing.JFrame {
         // TODO add your handling code here:
         String query = "select * from tbl_teman where nama like '%"+jTextField1.getText()+"%'";
         try {
-            k.getConnection();
-            ResultSet rs = k.st.executeQuery(query);
+            kon.getConnection();
+            ResultSet rs = kon.state.executeQuery(query);
             while(rs.next()){
                 dtm.getDataVector().removeAllElements();
                 dtm.addRow(new Object[]{
@@ -150,9 +150,9 @@ public class ViewCariTeman extends javax.swing.JFrame {
                 });
             }
             jTable1.setModel(dtm);
-            k.st.close();
+            kon.state.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan");
+            JOptionPane.showMessageDialog(this, "terjadi kesalahan");
             System.err.println(e.getMessage());
         }
     }//GEN-LAST:event_jTextField1KeyReleased

@@ -18,13 +18,13 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 /**
  *
- * @author abyssBerserker
+ * 
  */
 public class ViewTeman extends javax.swing.JPanel implements ActionListener, ComponentListener, MouseListener {
 
     ControllerTeman ct = new ControllerTeman();
     ModelTeman mt = new ModelTeman();
-    Koneksi konek = new Koneksi();
+    Koneksi kon = new Koneksi();
     String query = "";
     /**
      * Creates new form ViewTeman
@@ -36,39 +36,39 @@ public class ViewTeman extends javax.swing.JPanel implements ActionListener, Com
     }
 
     void firstIntial(){
-        btBaru.setVisible(true);
-        btBatal.setVisible(false);
-        btBaru.setEnabled(true);
-        btSimpan.setEnabled(false);
-        btBersih.setEnabled(false);
-        btUbah.setEnabled(false);
-        btHapus.setEnabled(false);
-        btTutup.setEnabled(true);
-        txtID.setEditable(false);
-        txtNama.setEditable(false);
-        txtNope.setEditable(false);
-        txtEmail.setEditable(false);
+        baru.setVisible(true);
+        batal.setVisible(false);
+        baru.setEnabled(true);
+        simpan.setEnabled(false);
+        bersih.setEnabled(false);
+        ubah.setEnabled(false);
+        hapus.setEnabled(false);
+        tutup.setEnabled(true);
+        id.setEditable(false);
+        nama.setEditable(false);
+        no.setEditable(false);
+        email.setEditable(false);
     }
     
     void btBaru(){
-        btBaru.setVisible(false);
-        btBaru.setEnabled(false);
-        btBatal.setVisible(true);
-        btBatal.setVisible(true);
-        btSimpan.setEnabled(true);
-        btBersih.setEnabled(true);
-        btUbah.setEnabled(true);
-        btHapus.setEnabled(true);
-        btTutup.setEnabled(true);
-        txtNama.setEditable(true);
-        txtNope.setEditable(true);
-        txtEmail.setEditable(true);
+        baru.setVisible(false);
+        baru.setEnabled(false);
+        batal.setVisible(true);
+        batal.setVisible(true);
+        simpan.setEnabled(true);
+        bersih.setEnabled(true);
+        ubah.setEnabled(true);
+        hapus.setEnabled(true);
+        tutup.setEnabled(true);
+        nama.setEditable(true);
+        no.setEditable(true);
+        email.setEditable(true);
     }
     void tampilTeman(){
         try {
             query = "select * from tbl_teman";
-            konek.getConnection();
-            ResultSet rs = konek.st.executeQuery(query);
+            kon.getConnection();
+            ResultSet rs = kon.state.executeQuery(query);
             while(rs.next()){
                 dtm.addRow(new Object[]{
                     rs.getString("id"),
@@ -77,10 +77,10 @@ public class ViewTeman extends javax.swing.JPanel implements ActionListener, Com
                     rs.getString("email")
                 });
             }
-            tb_viewTeman.setModel(dtm);
-            konek.st.close();
+            tabel.setModel(dtm);
+            kon.state.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan", "Informasi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "terjadi kesalahan", "Informasi", JOptionPane.ERROR_MESSAGE);
             System.err.println(e.getMessage());
         }
     }
@@ -97,19 +97,19 @@ public class ViewTeman extends javax.swing.JPanel implements ActionListener, Com
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
-        txtNama = new javax.swing.JTextField();
-        txtNope = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        btBatal = new javax.swing.JButton();
-        btSimpan = new javax.swing.JButton();
-        btBersih = new javax.swing.JButton();
-        btUbah = new javax.swing.JButton();
-        btHapus = new javax.swing.JButton();
-        btTutup = new javax.swing.JButton();
+        id = new javax.swing.JTextField();
+        nama = new javax.swing.JTextField();
+        no = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        batal = new javax.swing.JButton();
+        simpan = new javax.swing.JButton();
+        bersih = new javax.swing.JButton();
+        ubah = new javax.swing.JButton();
+        hapus = new javax.swing.JButton();
+        tutup = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tb_viewTeman = new javax.swing.JTable();
-        btBaru = new javax.swing.JButton();
+        tabel = new javax.swing.JTable();
+        baru = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -134,52 +134,52 @@ public class ViewTeman extends javax.swing.JPanel implements ActionListener, Com
         jLabel4.setName("jLabel4"); // NOI18N
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 92, 78, -1));
 
-        txtID.setName("txtID"); // NOI18N
-        txtID.addComponentListener(this);
-        add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 11, 40, -1));
+        id.setName("id"); // NOI18N
+        id.addComponentListener(this);
+        add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 11, 40, -1));
 
-        txtNama.setName("txtNama"); // NOI18N
-        add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 37, 144, -1));
+        nama.setName("nama"); // NOI18N
+        add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 37, 144, -1));
 
-        txtNope.setName("txtNope"); // NOI18N
-        add(txtNope, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 63, 144, -1));
+        no.setName("no"); // NOI18N
+        add(no, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 63, 144, -1));
 
-        txtEmail.setName("txtEmail"); // NOI18N
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 89, 144, -1));
+        email.setName("email"); // NOI18N
+        add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 89, 144, -1));
 
-        btBatal.setText("Batal");
-        btBatal.setName("btBatal"); // NOI18N
-        btBatal.addActionListener(this);
-        add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 67, -1));
+        batal.setText("Batal");
+        batal.setName("batal"); // NOI18N
+        batal.addActionListener(this);
+        add(batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 67, -1));
 
-        btSimpan.setText("Simpan");
-        btSimpan.setName("btSimpan"); // NOI18N
-        btSimpan.addActionListener(this);
-        add(btSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 48, -1, -1));
+        simpan.setText("Simpan");
+        simpan.setName("simpan"); // NOI18N
+        simpan.addActionListener(this);
+        add(simpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 48, -1, -1));
 
-        btBersih.setText("Bersih");
-        btBersih.setName("btBersih"); // NOI18N
-        btBersih.addActionListener(this);
-        add(btBersih, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 77, 67, -1));
+        bersih.setText("Bersih");
+        bersih.setName("bersih"); // NOI18N
+        bersih.addActionListener(this);
+        add(bersih, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 77, 67, -1));
 
-        btUbah.setText("Ubah");
-        btUbah.setName("btUbah"); // NOI18N
-        btUbah.addActionListener(this);
-        add(btUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 19, 63, -1));
+        ubah.setText("Ubah");
+        ubah.setName("ubah"); // NOI18N
+        ubah.addActionListener(this);
+        add(ubah, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 19, 63, -1));
 
-        btHapus.setText("Hapus");
-        btHapus.setName("btHapus"); // NOI18N
-        btHapus.addActionListener(this);
-        add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 48, -1, -1));
+        hapus.setText("Hapus");
+        hapus.setName("hapus"); // NOI18N
+        hapus.addActionListener(this);
+        add(hapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 48, -1, -1));
 
-        btTutup.setText("Tutup");
-        btTutup.setName("btTutup"); // NOI18N
-        btTutup.addActionListener(this);
-        add(btTutup, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 77, 63, -1));
+        tutup.setText("Tutup");
+        tutup.setName("tutup"); // NOI18N
+        tutup.addActionListener(this);
+        add(tutup, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 77, 63, -1));
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
-        tb_viewTeman.setModel(new javax.swing.table.DefaultTableModel(
+        tabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -198,47 +198,47 @@ public class ViewTeman extends javax.swing.JPanel implements ActionListener, Com
                 return canEdit [columnIndex];
             }
         });
-        tb_viewTeman.setName("tb_viewTeman"); // NOI18N
-        tb_viewTeman.addMouseListener(this);
-        jScrollPane1.setViewportView(tb_viewTeman);
-        if (tb_viewTeman.getColumnModel().getColumnCount() > 0) {
-            tb_viewTeman.getColumnModel().getColumn(0).setResizable(false);
-            tb_viewTeman.getColumnModel().getColumn(1).setResizable(false);
-            tb_viewTeman.getColumnModel().getColumn(2).setResizable(false);
-            tb_viewTeman.getColumnModel().getColumn(3).setResizable(false);
+        tabel.setName("tabel"); // NOI18N
+        tabel.addMouseListener(this);
+        jScrollPane1.setViewportView(tabel);
+        if (tabel.getColumnModel().getColumnCount() > 0) {
+            tabel.getColumnModel().getColumn(0).setResizable(false);
+            tabel.getColumnModel().getColumn(1).setResizable(false);
+            tabel.getColumnModel().getColumn(2).setResizable(false);
+            tabel.getColumnModel().getColumn(3).setResizable(false);
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 432, 250));
 
-        btBaru.setText("Baru");
-        btBaru.setName("btBaru"); // NOI18N
-        btBaru.addActionListener(this);
-        add(btBaru, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 19, 67, -1));
+        baru.setText("Baru");
+        baru.setName("baru"); // NOI18N
+        baru.addActionListener(this);
+        add(baru, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 19, 67, -1));
     }
 
     // Code for dispatching events from components to event handlers.
 
     public void actionPerformed(java.awt.event.ActionEvent evt) {
-        if (evt.getSource() == btBatal) {
-            ViewTeman.this.btBatalActionPerformed(evt);
+        if (evt.getSource() == batal) {
+            ViewTeman.this.batalActionPerformed(evt);
         }
-        else if (evt.getSource() == btSimpan) {
-            ViewTeman.this.btSimpanActionPerformed(evt);
+        else if (evt.getSource() == simpan) {
+            ViewTeman.this.simpanActionPerformed(evt);
         }
-        else if (evt.getSource() == btBersih) {
-            ViewTeman.this.btBersihActionPerformed(evt);
+        else if (evt.getSource() == bersih) {
+            ViewTeman.this.bersihActionPerformed(evt);
         }
-        else if (evt.getSource() == btUbah) {
-            ViewTeman.this.btUbahActionPerformed(evt);
+        else if (evt.getSource() == ubah) {
+            ViewTeman.this.ubahActionPerformed(evt);
         }
-        else if (evt.getSource() == btHapus) {
-            ViewTeman.this.btHapusActionPerformed(evt);
+        else if (evt.getSource() == hapus) {
+            ViewTeman.this.hapusActionPerformed(evt);
         }
-        else if (evt.getSource() == btTutup) {
-            ViewTeman.this.btTutupActionPerformed(evt);
+        else if (evt.getSource() == tutup) {
+            ViewTeman.this.tutupActionPerformed(evt);
         }
-        else if (evt.getSource() == btBaru) {
-            ViewTeman.this.btBaruActionPerformed(evt);
+        else if (evt.getSource() == baru) {
+            ViewTeman.this.baruActionPerformed(evt);
         }
     }
 
@@ -252,14 +252,14 @@ public class ViewTeman extends javax.swing.JPanel implements ActionListener, Com
     }
 
     public void componentShown(java.awt.event.ComponentEvent evt) {
-        if (evt.getSource() == txtID) {
-            ViewTeman.this.txtIDComponentShown(evt);
+        if (evt.getSource() == id) {
+            ViewTeman.this.idComponentShown(evt);
         }
     }
 
     public void mouseClicked(java.awt.event.MouseEvent evt) {
-        if (evt.getSource() == tb_viewTeman) {
-            ViewTeman.this.tb_viewTemanMouseClicked(evt);
+        if (evt.getSource() == tabel) {
+            ViewTeman.this.tabelMouseClicked(evt);
         }
     }
 
@@ -275,30 +275,30 @@ public class ViewTeman extends javax.swing.JPanel implements ActionListener, Com
     public void mouseReleased(java.awt.event.MouseEvent evt) {
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
+    private void batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalActionPerformed
         // TODO add your handling code here:
         firstIntial();
         Bersih();
-    }//GEN-LAST:event_btBatalActionPerformed
+    }//GEN-LAST:event_batalActionPerformed
 
-    private void btBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBaruActionPerformed
+    private void baruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_baruActionPerformed
         // TODO add your handling code here:
         btBaru();
         Bersih();
-        txtNama.requestFocus();
-    }//GEN-LAST:event_btBaruActionPerformed
+        nama.requestFocus();
+    }//GEN-LAST:event_baruActionPerformed
 
-    private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
+    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
-        if(txtNama.getText().isEmpty() || txtNope.getText().isEmpty() || txtEmail.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Harap Masukkan Data Dengan Benar", "Informasi", JOptionPane.INFORMATION_MESSAGE);
-            txtNama.requestFocus();
+        if(nama.getText().isEmpty() || no.getText().isEmpty() || email.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Harap masukkan data dengan benar", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+            nama.requestFocus();
         }else{
-            if(JOptionPane.showConfirmDialog(this, "Apakah Anda Ingin Menyimpan Data ?", "Konfirmasi", 
+            if(JOptionPane.showConfirmDialog(this, "Apakah anda ingin menyimpan data ?", "Konfirmasi", 
                     JOptionPane.YES_NO_OPTION)== 0){
-                mt.setNama(txtNama.getText());
-                mt.setNope(txtNope.getText());
-                mt.setEmail(txtEmail.getText());
+                mt.setNama(nama.getText());
+                mt.setNope(no.getText());
+                mt.setEmail(email.getText());
                 try {
                     ct.SimpanData(mt);
                     dtm.getDataVector().removeAllElements();
@@ -306,98 +306,98 @@ public class ViewTeman extends javax.swing.JPanel implements ActionListener, Com
                     firstIntial();
                     Bersih();
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(this, "Terjadi Kesalahan", "Informasi", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "terjadi kesalahan", "Informasi", JOptionPane.ERROR_MESSAGE);
                     System.err.println(e.getMessage());
                 }
             }
         }
-    }//GEN-LAST:event_btSimpanActionPerformed
+    }//GEN-LAST:event_simpanActionPerformed
 
-    private void txtIDComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_txtIDComponentShown
+    private void idComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_idComponentShown
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDComponentShown
+    }//GEN-LAST:event_idComponentShown
 
-    private void btBersihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBersihActionPerformed
+    private void bersihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bersihActionPerformed
         // TODO add your handling code here:
         Bersih();
-    }//GEN-LAST:event_btBersihActionPerformed
+    }//GEN-LAST:event_bersihActionPerformed
 
-    private void tb_viewTemanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_viewTemanMouseClicked
+    private void tabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelMouseClicked
         // TODO add your handling code here:
-        baris = tb_viewTeman.getSelectedRow();
-        txtID.setText(tb_viewTeman.getValueAt(baris, 0).toString());
-        txtNama.setText(tb_viewTeman.getValueAt(baris, 1).toString());
-        txtNope.setText(tb_viewTeman.getValueAt(baris, 2).toString());
-        txtEmail.setText(tb_viewTeman.getValueAt(baris, 3).toString());
+        baris = tabel.getSelectedRow();
+        id.setText(tabel.getValueAt(baris, 0).toString());
+        nama.setText(tabel.getValueAt(baris, 1).toString());
+        no.setText(tabel.getValueAt(baris, 2).toString());
+        email.setText(tabel.getValueAt(baris, 3).toString());
         btBaru();
-    }//GEN-LAST:event_tb_viewTemanMouseClicked
+    }//GEN-LAST:event_tabelMouseClicked
 
-    private void btUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUbahActionPerformed
+    private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
         // TODO add your handling code here:
-        if(JOptionPane.showConfirmDialog(this, "Apakah Anda Ingin Mengubah Data ?", "Konfirmasi", 
+        if(JOptionPane.showConfirmDialog(this, "Apakah anda ingin mengubah data ?", "Konfirmasi", 
                     JOptionPane.YES_NO_OPTION)== 0){
-            mt.setId(Integer.parseInt(txtID.getText()));
-            mt.setNama(txtNama.getText());
-            mt.setNope(txtNope.getText());
-            mt.setEmail(txtEmail.getText());
+            mt.setId(Integer.parseInt(id.getText()));
+            mt.setNama(nama.getText());
+            mt.setNope(no.getText());
+            mt.setEmail(email.getText());
             try {
                 ct.UbahData(mt);
                 dtm.getDataVector().removeAllElements();
                 tampilTeman();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Terjadi Kesalahan", "Informasi", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "terjadi kesalahan", "Informasi", JOptionPane.ERROR_MESSAGE);
                 System.err.println(e.getMessage());
             }
         }
         
-    }//GEN-LAST:event_btUbahActionPerformed
+    }//GEN-LAST:event_ubahActionPerformed
 
-    private void btHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHapusActionPerformed
+    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
         // TODO add your handling code here:
-        if(JOptionPane.showConfirmDialog(this, "Apakah Anda Ingin Menghapus Data ?", "Konfirmasi", 
+        if(JOptionPane.showConfirmDialog(this, "Apakah anda ingin menghapus data ?", "Konfirmasi", 
                     JOptionPane.YES_NO_OPTION)== 0){
-            mt.setId(Integer.parseInt(txtID.getText()));
+            mt.setId(Integer.parseInt(id.getText()));
             try {
                 ct.HapusData(mt);
                 dtm.getDataVector().removeAllElements();
                 tampilTeman();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Terjadi Kesalahan", "Informasi", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "terjadi kesalahan", "Informasi", JOptionPane.ERROR_MESSAGE);
                 System.err.println(e.getMessage());
             }
         }
-    }//GEN-LAST:event_btHapusActionPerformed
+    }//GEN-LAST:event_hapusActionPerformed
 
-    private void btTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTutupActionPerformed
+    private void tutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tutupActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-    }//GEN-LAST:event_btTutupActionPerformed
+    }//GEN-LAST:event_tutupActionPerformed
 
     void Bersih(){
-        txtID.setText("");
-        txtNama.setText("");
-        txtNope.setText("");
-        txtEmail.setText("");
+        id.setText("");
+        nama.setText("");
+        no.setText("");
+        email.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBaru;
-    private javax.swing.JButton btBatal;
-    private javax.swing.JButton btBersih;
-    private javax.swing.JButton btHapus;
-    private javax.swing.JButton btSimpan;
-    private javax.swing.JButton btTutup;
-    private javax.swing.JButton btUbah;
+    private javax.swing.JButton baru;
+    private javax.swing.JButton batal;
+    private javax.swing.JButton bersih;
+    private javax.swing.JTextField email;
+    private javax.swing.JButton hapus;
+    private javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tb_viewTeman;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtNama;
-    private javax.swing.JTextField txtNope;
+    private javax.swing.JTextField nama;
+    private javax.swing.JTextField no;
+    private javax.swing.JButton simpan;
+    private javax.swing.JTable tabel;
+    private javax.swing.JButton tutup;
+    private javax.swing.JButton ubah;
     // End of variables declaration//GEN-END:variables
 
     int baris = 0;

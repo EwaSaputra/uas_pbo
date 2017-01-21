@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author abyssBerserker
+ * 
  */
 public class MenuUtama extends javax.swing.JFrame {
 
@@ -91,6 +91,11 @@ public class MenuUtama extends javax.swing.JFrame {
         jMenu1.add(jSeparator2);
 
         jMenuItem4.setText("Keluar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
@@ -133,7 +138,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Nama : Rendra Prasetia \nNPM : 15312467", "Tentang Saya", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Nama : Ewa Saputra Mahardika \nNPM : 15312432", "Tentang Saya", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -141,6 +146,11 @@ public class MenuUtama extends javax.swing.JFrame {
         vp.setVisible(true);
         vt.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments

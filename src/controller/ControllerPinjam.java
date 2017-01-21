@@ -14,7 +14,7 @@ import util.Koneksi;
 
 /**
  *
- * @author abyssBerserker
+ * 
  */
 public class ControllerPinjam {
     Koneksi koneksi = new Koneksi();
@@ -26,8 +26,8 @@ public class ControllerPinjam {
                 mp.getBarang()+"')";
         try {
             koneksi.getConnection();
-            koneksi.st.executeUpdate(query);
-            koneksi.st.close();
+            koneksi.state.executeUpdate(query);
+            koneksi.state.close();
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan", "Informasi", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Data Gagal Disimpan", "Informasi", JOptionPane.ERROR_MESSAGE);
@@ -39,8 +39,8 @@ public class ControllerPinjam {
         query = "update tbl_pinjam set namaTeman=('"+mp.getNama()+"'), barangDipinjam = ('"+mp.getBarang()+"') where id = ('"+mp.getId()+"')";
         try {
             koneksi.getConnection();
-            koneksi.st.executeUpdate(query);
-            koneksi.st.close();
+            koneksi.state.executeUpdate(query);
+            koneksi.state.close();
             JOptionPane.showMessageDialog(null, "Data Berhasil Diubah", "Informasi", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Data Gagal Diubah", "Informasi", JOptionPane.ERROR_MESSAGE);
@@ -52,8 +52,8 @@ public class ControllerPinjam {
         query = "delete from tbl_pinjam where id=('"+mp.getId()+"')";
         try {
             koneksi.getConnection();
-            koneksi.st.executeUpdate(query);
-            koneksi.st.close();
+            koneksi.state.executeUpdate(query);
+            koneksi.state.close();
             JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus", "Informasi", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Data Gagal Dihapus", "Informasi", JOptionPane.ERROR_MESSAGE);
